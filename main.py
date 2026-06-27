@@ -4,16 +4,17 @@ API LEARNING FILE
 This file covers:
 
 1. API basics
-2. requests library = call APIs
-3. FastAPI          = build APIs
-4. BaseModel        = define JSON body structure
-5. Path parameters
-6. Query parameters
-7. Status codes
-8. Error handling
-9. One Product API example
-10. One Book API example
-11. requests examples to test APIs
+2. REST API explanation
+3. requests library = call APIs
+4. FastAPI = build APIs
+5. BaseModel = define JSON body structure
+6. Path parameters
+7. Query parameters
+8. Status codes
+9. Error handling
+10. One Product API example
+11. One Book API example
+12. requests examples to test APIs
 
 Run this file:
 
@@ -68,6 +69,83 @@ STATUS CODES:
     422 = validation error
     429 = too many requests
     500 = server error
+"""
+
+# ============================================================
+# REST API EXPLANATION
+# ============================================================
+
+"""
+REST API:
+
+REST API is not a new library.
+REST API is a style/design for building APIs.
+
+API:
+    General idea: software talks to software.
+
+REST API:
+    A common API style that uses:
+
+    1. URLs for resources/things
+    2. HTTP methods for actions
+    3. JSON for sending/receiving data
+    4. Status codes for results
+
+Resource:
+    A thing/data in your app.
+
+Examples of resources:
+    products
+    books
+    users
+    orders
+
+In REST, each resource usually has a URL.
+
+Examples:
+
+    /products
+    /products/1
+    /books
+    /books/2
+
+HTTP method decides the action:
+
+    GET /products
+        Read all products.
+
+    GET /products/1
+        Read one product.
+
+    POST /products
+        Create a new product.
+
+    PATCH /products/1
+        Update part of product 1.
+
+    DELETE /products/1
+        Delete product 1.
+
+So this:
+
+    @app.get("/books/{book_id}")
+
+is a REST-style endpoint because:
+
+    /books/{book_id}
+        is the resource URL.
+
+    GET
+        is the action: read data.
+
+Important idea:
+
+    REST API = API that follows this URL + HTTP method style.
+
+So REST API is still an API,
+but not every API must be REST.
+REST is one common way to design APIs.
 """
 
 # ============================================================
@@ -735,6 +813,33 @@ class Product(BaseModel):
 @app.post("/products")
 def create_product(product: Product):
     return product
+
+
+REST API:
+
+REST API means building APIs using this style:
+
+URL = resource
+HTTP method = action
+JSON = data format
+status code = result
+
+Examples:
+
+GET /products
+    Read all products.
+
+GET /products/1
+    Read product 1.
+
+POST /products
+    Create product.
+
+PATCH /products/1
+    Update product 1.
+
+DELETE /products/1
+    Delete product 1.
 
 
 MOST IMPORTANT FASTAPI FORMULA:
