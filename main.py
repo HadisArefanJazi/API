@@ -5,11 +5,11 @@ This file covers:
 
 1. API basics
 2. REST API explanation
-3. requests library = call APIs
-4. FastAPI = build APIs
-5. BaseModel = define JSON body structure
-6. Path parameters
-7. Query parameters
+3. requests library    = call APIs
+4. FastAPI             = build APIs
+5. BaseModel           = define JSON body structure
+6. Path   parameters
+7. Query  parameters
 8. Status codes
 9. Error handling
 10. One Product API example
@@ -53,21 +53,23 @@ JSON:
         {"name": "Book", "price": 10.5}
 
 HTTP METHODS:
-    GET    = read data
-    POST   = create/send data
-    PATCH  = update part of data
-    DELETE = remove data
+    GET     = read data
+    POST    = create/send data
+    PATCH   = update part of data
+    DELETE  = remove data
 
 STATUS CODES:
     200 = success
     201 = created
     204 = success, no body
+    
     400 = bad request
     401 = not authenticated
     403 = no permission
     404 = not found
     422 = validation error
     429 = too many requests
+    
     500 = server error
 """
 
@@ -143,9 +145,6 @@ Important idea:
 
     REST API = API that follows this URL + HTTP method style.
 
-So REST API is still an API,
-but not every API must be REST.
-REST is one common way to design APIs.
 """
 
 # ============================================================
@@ -159,10 +158,10 @@ General structure:
 
 import requests
 
-response = requests.get(url, params=params, headers=headers, timeout=10)
-response = requests.post(url, json=data, headers=headers, timeout=10)
-response = requests.patch(url, json=data, headers=headers, timeout=10)
-response = requests.delete(url, headers=headers, timeout=10)
+response = requests.get   (url,  params=params, headers=headers, timeout=10)
+response = requests.post  (url,  json=data,     headers=headers, timeout=10)
+response = requests.patch (url,  json=data,     headers=headers, timeout=10)
+response = requests.delete(url,                 headers=headers, timeout=10)
 
 params:
     Query/filter options for GET requests.
@@ -347,9 +346,9 @@ products = {}
 next_id = 1
 
 books = {
-    1: {"title": "Python Basics", "author": "Ali", "year": 2020},
-    2: {"title": "FastAPI Guide", "author": "Sara", "year": 2023},
-    3: {"title": "API Mastery", "author": "John", "year": 2024},
+    1: {"title":  "Python Basics",   "author": "Ali",    "year": 2020},
+    2: {"title":  "FastAPI Guide",   "author": "Hari",   "year": 2023},
+    3: {"title":    "API Mastery",   "author": "John",   "year": 2024},
 }
 
 
@@ -361,7 +360,7 @@ books = {
 # This is the home endpoint.
 @app.get("/")
 def home():
-    return {"message": "Welcome to API Learning File"}
+    return {"message": "Welcome to API Learning File by Hari!"}
 
 
 # ============================================================
@@ -773,10 +772,10 @@ FINAL MEMORY STRUCTURE
 
 CLIENT SIDE with requests:
 
-response = requests.get(url, params=params, headers=headers, timeout=10)
-response = requests.post(url, json=data, headers=headers, timeout=10)
-response = requests.patch(url, json=data, headers=headers, timeout=10)
-response = requests.delete(url, headers=headers, timeout=10)
+response = requests.get    (url, params=params, headers=headers, timeout=10)
+response = requests.post   (url, json=data,     headers=headers, timeout=10)
+response = requests.patch  (url, json=data,     headers=headers, timeout=10)
+response = requests.delete (url,                headers=headers, timeout=10)
 
 
 SERVER SIDE with FastAPI:
@@ -819,10 +818,10 @@ REST API:
 
 REST API means building APIs using this style:
 
-URL = resource
-HTTP method = action
-JSON = data format
-status code = result
+URL          = resource
+HTTP method  = action
+JSON         = data format
+status code  = result
 
 Examples:
 
